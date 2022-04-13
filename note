@@ -1,4 +1,23 @@
-angular basics
+echo "# hi" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Bismi478/hi.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/Bismi478/hi.git
+git branch -M main
+git push -u origin main
+
+
+
+
+------------------------------- angular basics ----------------------------
+
+
 
 1. modules. to import libraries - root Module - AppModule
 
@@ -6,14 +25,19 @@ angular basics
 
 3. Data binding - data sharing b/w ts and html
 
+    3.1 One way Binding - data sharing only in one direction
+
         3.1.1 component to view
 
             3.1.1.1 string Interpolation - syntax: {{variable name}}
 
             3.1.1.2 Property binding - syntax: [attribute-name]="Property-name"
-        
+
         3.1.2 view to component
 
-            3.1.2.1 Event Binding -syntax: (Event-name)="function-call"
+            3.1.2.1 Event Binding -syntax: (Event-name)="function-call" (click)="login(acno,pswd)"
 
-            3.1.2.2 Event Binding using $event - syntax: (Event-name)="function-call($event)"
+            3.1.2.2 Event Binding using $event - syntax: (Event-name)="function-call($event)"  (change)="pswdChange($event)"
+
+    3.2 Two way Binding - data sharing in both direction
+            

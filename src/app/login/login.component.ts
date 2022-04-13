@@ -12,13 +12,13 @@ print="hello welcome"
 
 accnm="Account number please!!!"
 
-acno=""
+accno=""
 
 pswd=""
 
 
   //database
-  database={
+  database:any={
     1000:{acno:1000,uname:"Manu",password:1000,balance:5000},
     1001:{acno:1001,uname:"Madhav",password:1001,balance:3000},
     1002:{acno:1002,uname:"Rins",password:1002,balance:4000},
@@ -29,7 +29,7 @@ pswd=""
   }
 
   acnoChange(event:any){
-    this.acno = event.target.value
+    this.accno = event.target.value
     console.log(event.target.value);
     
   }
@@ -41,6 +41,28 @@ pswd=""
   }
 
   login(){
-    alert("Login clicked!!!")
+ 
+    // user entered acno and pswd
+    var accno = this.accno
+    var pass = this.pswd
+
+    let database = this.database
+
+    if(accno in database){
+
+       if(pass == database[accno]["password"]){
+
+          alert("Login successfull!!! ")
+        }
+
+        else{
+          alert("invalid passsword ")
+        }
+      
+    }
+    else{
+      alert("User does not exist!!! ")
+    }
   }
 }
+
