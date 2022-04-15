@@ -35,9 +35,55 @@ git push -u origin main
 
         3.1.2 view to component
 
-            3.1.2.1 Event Binding -syntax: (Event-name)="function-call" (click)="login(acno,pswd)"
+            3.1.2.1 Event Binding -syntax: (Event-name)="function-call" #(click)="login()"
 
-            3.1.2.2 Event Binding using $event - syntax: (Event-name)="function-call($event)"  (change)="pswdChange($event)"
+            3.1.2.2 Event Binding using $event - syntax: (Event-name)="function-call($event)"  
+
+                                                                                                        
+                                                                            # login(){
+                                                                            
+                                                                            #     // user entered acno and pswd
+                                                                            #     var accno = this.accno
+                                                                            #     var pass = this.pswd
+                                                                            #     let database = this.database
+                                                                            #     if(accno in database){
+
+                                                                            #     if(pass == database[accno]["password"]){
+
+                                                                            #         alert("Login successfull!!! ")
+                                                                            #         }
+
+                                                                            #         else{
+                                                                            #         alert("invalid passsword ")
+                                                                            #         }
+                                                                                
+                                                                            #     }
+                                                                            #     else{
+                                                                            #     alert("User does not exist!!! ")
+                                                                            #     }
+                                                                            # }
+
+         3.1.2.2 Template referencing variable -syntax: #referencing-variable-nm
+
+                                                                                #         login(a:any,p:any){
+                                                                                #     console.log(a.value);
+                                                                                #     // user entered acno and pswd
+                                                                                #     var accno = a.value
+                                                                                #     var pass = p.value
+                                                                                #     let database = this.database
+                                                                                #     if(accno in database){
+                                                                                #     if(pass == database[accno]["password"]){
+                                                                                #         alert("Login successfull!!! ")
+                                                                                #         }
+                                                                                #         else{
+                                                                                #         alert("incorrect passsword ")
+                                                                                #         }                                                           
+                                                                                #     }
+                                                                                #     else{
+                                                                                #     alert("User does not exist!!! ")
+                                                                                #     }
+                                                                                # }
+
 
     3.2 Two way Binding - data sharing in both direction
             

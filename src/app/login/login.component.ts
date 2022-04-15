@@ -40,11 +40,14 @@ pswd=""
     
   }
 
-  login(){
+  login(a:any,p:any){
+
+    console.log(a.value);
+    
  
     // user entered acno and pswd
-    var accno = this.accno
-    var pass = this.pswd
+    var accno = a.value
+    var pass = p.value
 
     let database = this.database
 
@@ -56,13 +59,14 @@ pswd=""
         }
 
         else{
-          alert("invalid passsword ")
+          alert("incorrect passsword ")
         }
       
     }
     else{
-      alert("User does not exist!!! ")
+      alert("User does not exist!!! ")   
     }
   }
 }
 
+// 1:7:39
