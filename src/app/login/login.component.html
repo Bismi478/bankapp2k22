@@ -15,7 +15,7 @@
                  
               </div>
               <div class="card-body">
-                  <form onsubmit="event.preventDefault();bank.authenticate()">
+                 <form> <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -24,7 +24,9 @@
                           <!-- event binding using $event - (change)="acnoChange($event)"   -->
                           <!-- alt method for event binding using $event -->
                           <!-- template referencing variable - #acno -->
-                          <input type="text"  #acno class="form-control" [placeholder]="accnm" id="login_accno" required> <!-- Property binding -->
+                          <!-- alt method for TRV -->
+                          <!-- two way binding using ngModel -->
+                          <input type="text" name="accn"  [(ngModel)]="accno" class="form-control" [placeholder]="accnm" id="login_accno" required> <!-- Property binding -->
                           
                       </div>
                       <div class="input-group form-group">
@@ -34,12 +36,17 @@
                           <!-- event binding using $event - (change)="pswdChange($event)"   -->
                           <!-- alt method for event binding using $event -->
                           <!-- template referencing variable - #pswd -->
-                        <input type="password" #pswd class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
+                           <!-- alt method for TRV -->
+                          <!-- two way binding using ngModel -->
+                        <input type="password" [(ngModel)]="psword" class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
                       </div>
                       
                       <div class="form-group">
                           <!-- event binding method - (click)="login()" -->
-                          <input type="submit" (click)="login(acno,pswd)" value="Login" class="btn float-right login_btn " style="width:50%" >  <!--Event Binding -->
+                           <!-- template referencing variable - (click)="login(acno,pswd)" -->
+                            <!-- alt method for TRV -->
+                          <!-- two way binding using ngModel - (click)="login()" -->
+                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >  <!--Event Binding -->
                       </div>
                   </form>
               </div>
