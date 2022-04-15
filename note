@@ -79,5 +79,7 @@ git push -u origin main
 
 4. ngSubmit - to submit the form , syntax: (ngSubmit)="function-call()"
 
-5. set path for an html page
+5. set path for an html page - app.routing.module.ts , syntax:{path,component} redirecting for one page to another
+
+6. Dependancy Injection - to share data b/w dependent classes ..................IMPORTANT ///1:20
             

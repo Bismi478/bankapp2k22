@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ pswd=""
     1001:{acno:1001,uname:"Madhav",password:1001,balance:3000},
     1002:{acno:1002,uname:"Rins",password:1002,balance:4000},
   }
-  constructor() { }
+  constructor(private router:Router) { } //dependency injection for data sharing
 
   ngOnInit(): void {
   }
@@ -54,6 +55,7 @@ pswd=""
         if(pass == database[accno]["password"]){
 
            alert("Login successfull!!! ")
+           this.router.navigateByUrl("home")
           }
 
           else{
@@ -94,4 +96,4 @@ pswd=""
   // }
 }
 
-// this indicate - class details point cheyyan  - call by reference
+// "this" indicate - class details point cheyyan  - call by reference
