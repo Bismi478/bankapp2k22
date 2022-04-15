@@ -75,4 +75,9 @@ git push -u origin main
                        1 - import FormsModule in AppModule(temp storage for 3rd party libraries)
 
                        2. syntax  :  [(ngModel)]="variable-nm" , variable-name should defined in ts file
+
+
+4. ngSubmit - to submit the form , syntax: (ngSubmit)="function-call()"
+
+5. set path for an html page
             

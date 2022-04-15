@@ -15,7 +15,7 @@
                  
               </div>
               <div class="card-body">
-                 <form> <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
+                 <form (ngSubmit)="login()"> <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -26,7 +26,7 @@
                           <!-- template referencing variable - #acno -->
                           <!-- alt method for TRV -->
                           <!-- two way binding using ngModel -->
-                          <input type="text" name="accn"  [(ngModel)]="accno" class="form-control" [placeholder]="accnm" id="login_accno" required> <!-- Property binding -->
+                          <input type="text" name="accno"  [(ngModel)]="accno" class="form-control" [placeholder]="accnm" id="login_accno" required> <!-- Property binding -->
                           
                       </div>
                       <div class="input-group form-group">
@@ -38,15 +38,13 @@
                           <!-- template referencing variable - #pswd -->
                            <!-- alt method for TRV -->
                           <!-- two way binding using ngModel -->
-                        <input type="password" [(ngModel)]="psword" class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
+                        <input type="password" name="pswod" [(ngModel)]="pswd" class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
                       </div>
                       
                       <div class="form-group">
                           <!-- event binding method - (click)="login()" -->
-                           <!-- template referencing variable - (click)="login(acno,pswd)" -->
-                            <!-- alt method for TRV -->
-                          <!-- two way binding using ngModel - (click)="login()" -->
-                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >  <!--Event Binding -->
+                          <!-- ngsubmit il (click)="login()" venda line18 -->
+                          <input type="submit"  value="Login" class="btn float-right login_btn " style="width:50%" >  <!--Event Binding -->
                       </div>
                   </form>
               </div>
