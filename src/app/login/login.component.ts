@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,8 @@ accno=""
 pswd=""
 
 
-  //database
-  database:any={
-    1000:{acno:1000,uname:"Manu",password:1000,balance:5000},
-    1001:{acno:1001,uname:"Madhav",password:1001,balance:3000},
-    1002:{acno:1002,uname:"Rins",password:1002,balance:4000},
-  }
-  constructor(private router:Router) { } //dependency injection for data sharing
+ 
+  constructor(private router:Router,private ds:DataService) { } //dependency injection for data sharing
 
   ngOnInit(): void {
   }
@@ -49,7 +45,7 @@ pswd=""
         console.log(accno);
         
          var pass = this.pswd
-         let database = this.database
+         let database = this.ds.database
          if(accno in database){
 
         if(pass == database[accno]["password"]){

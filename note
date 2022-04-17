@@ -13,9 +13,27 @@ git branch -M main
 git push -u origin main
 
 
+                       ------------------------------- angular frontend ----------------------------
 
 
-------------------------------- angular basics ----------------------------
+
+
+                       ------------------------------- angular commands ----------------------------
+
+
+                       1. to create angular project - ng new project_name / ng new project_name --routing
+
+                       2. to run a angular Project - ng serve / ng serve --open
+
+                       3. to create component - ng g c component_name
+
+                       4. to create service - ng g s service_name
+
+
+
+
+
+                      ------------------------------- angular basics ----------------------------
 
 
 
@@ -82,4 +100,6 @@ git push -u origin main
 5. set path for an html page - app.routing.module.ts , syntax:{path,component} redirecting for one page to another
 
 6. Dependancy Injection - to share data b/w dependent classes ..................IMPORTANT ///1:20
+
+7. Angular Services 
             
