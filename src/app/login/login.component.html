@@ -2,11 +2,12 @@
 <!-- As a link -->
 <nav class="navbar navbar-light bg-dark " >
     <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+    <span  class="quote text-light t">Your Perfect Banking Partner</span>
     <span class="quote text-light">Giving you freedom...</span>
-    <h4 style="color: antiquewhite;">{{print}}</h4> <!-- string Interpolation-->
+   
   </nav>
   
-  
+  <!-- <h4 style="color: antiquewhite;">{{print}}</h4> string Interpolation -->
   <div class="container col-md-12 mt-0">
       <div class="d-flex justify-content-center h-100">
           <div class="card">
@@ -15,7 +16,7 @@
                  
               </div>
               <div class="card-body">
-                 <form (ngSubmit)="login()"> <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
+                 <form [formGroup]="loginForm" (ngSubmit)="login()"> <!--form il ngmodel work akan input il name declare cheyyanm {29 line} -->
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -26,9 +27,11 @@
                           <!-- template referencing variable - #acno -->
                           <!-- alt method for TRV -->
                           <!-- two way binding using ngModel -->
-                          <input type="text" name="accno"  [(ngModel)]="accno" class="form-control" [placeholder]="accnm" id="login_accno" required> <!-- Property binding -->
-                          
+                          <input type="text" name="acno"  formControlName="acno" class="form-control" [placeholder]="accnm" id="login_acno" required> <!-- Property binding -->
                       </div>
+                      
+                    <div *ngIf = "this.loginForm.get('acno')?.touched && this.loginForm.get('acno')?.errors" style="color: rgb(255, 59, 59);">Invalid Account number</div>
+                      
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -38,8 +41,11 @@
                           <!-- template referencing variable - #pswd -->
                            <!-- alt method for TRV -->
                           <!-- two way binding using ngModel -->
-                        <input type="password" name="pswod" [(ngModel)]="pswd" class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
+                        <input type="password" name="password" formControlName="password" class="form-control" placeholder="password" id="login_password" required>   <!-- Event Binding using $event-->
                       </div>
+                      
+                    <div *ngIf = "this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors" style="color: rgb(255, 59, 59);">Invalid Password</div>
+                      
                       
                       <div class="form-group">
                           <!-- event binding method - (click)="login()" -->

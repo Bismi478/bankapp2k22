@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
@@ -14,82 +15,45 @@ print="hello welcome"
 
 accnm="Account number please!!!"
 
-accno=""
 
-pswd=""
-
-
+//loginForm Model
+loginForm =this.fb.group({
+  acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+  password:['',[Validators.required,Validators.pattern('[a-zA-Z0-9 ]*')]]
+})
  
-  constructor(private router:Router,private ds:DataService) { } //dependency injection for data sharing
+  constructor(private router:Router,private ds:DataService,private fb:FormBuilder) { } //dependency injection for data sharing
 
   ngOnInit(): void {
   }
 
-  // acnoChange(event:any){
-  //   this.accno = event.target.value
-  //   console.log(event.target.value);
-    
-  // }
-
-  // pswdChange(event:any){
-  //   this.pswd = event.target.value
-  //   console.log(event.target.value);
-    
-  // } // event binding
+  
 
   //login using event binding/ two way binding
    login(){
                                                                             
          // user entered acno and pswd
-        var accno = this.accno
-        console.log(accno);
-        
-         var pass = this.pswd
-         let database = this.ds.database
-         if(accno in database){
-
-        if(pass == database[accno]["password"]){
-
-           alert("Login successfull!!! ")
-           this.router.navigateByUrl("home")
-          }
-
-          else{
-             alert("invalid passsword ")
-             }
-        
-         }
-         else{
-         alert("User does not exist!!! ")
-         }
-     }
-  // login(a:any,p:any){
-
-  //   console.log(a.value);
-    
- 
-  //   // user entered acno and pswd
-  //   var accno = a.value
-  //   var pass = p.value
-
-  //   let database = this.database
-
-  //   if(accno in database){
-
-  //      if(pass == database[accno]["password"]){
-
-  //         alert("Login successfull!!! ")
-  //       }
-
-  //       else{
-  //         alert("incorrect passsword ")
-  //       }
+        var acno = this.loginForm.value.acno
+        var password = this.loginForm.value.password
       
-  //   }
-  //   else{
-  //     alert("User does not exist!!! ")   
-  //   }
-  // }
+if(this.loginForm.valid){
+  //call login in dataService
+  const result = this.ds.login(acno,password)
+  if(result){
+
+     alert("Login successfull!!! ")
+     this.router.navigateByUrl("home")
+    }
+  
+}else
+{
+  alert("Invalid Form!!!")
+}
+       
+
+       
+     }
+ 
 }
 
 // "this" indicate - class details point cheyyan  - call by reference
